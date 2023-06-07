@@ -7,3 +7,13 @@ class Colors {
   static const Color backgroundColor = Color(0xFF262930);
   static const Color secondaryColor = Color(0xFFF7CA18);
 }
+
+class TextStyles {
+  const TextStyles();
+
+  static const TextStyle normalText = TextStyle(
+    color: Colors.mainColor,
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+  );
+}

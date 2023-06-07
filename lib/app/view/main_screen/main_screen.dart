@@ -2,6 +2,8 @@ import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 import 'package:game_hive/app/utils/themes.dart' as style;
+import 'package:game_hive/app/view/games/games.dart';
+import 'package:game_hive/app/view/home/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -41,16 +43,8 @@ class _MainScreenState extends State<MainScreen> {
             });
           },
           children: [
-            Container(
-              child: const Center(
-                child: Text('Home'),
-              ),
-            ),
-            Container(
-              child: const Center(
-                child: Text('Games'),
-              ),
-            ),
+            const HomeScreen(),
+            const GameScreen(),
             Container(
               child: const Center(
                 child: Text('Messages'),
