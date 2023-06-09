@@ -8,7 +8,7 @@ class AllServices {
   static String mainURL = 'https://api.igdb.com/v4';
   var platformListURL = '$mainURL/platforms';
   final String clientID = 'l5deuz26zvrjjk2wle7lhx0j6wkwx6';
-  final String authorization = 'Bearer al5cevcj6oj1mruhr3unrbsgq35bvn';
+  final String authorization = 'Bearer 3yonzgspmkdfwqdkjvxfez5gkbgnwd';
   static int limit = 10;
 
   Future<PlatformResponse> getPlatform() async {
@@ -19,7 +19,7 @@ class AllServices {
           "Accept": "application/json,",
         },
         body:
-            "fields abbreviation,alternative_name,category,checksum,created_at,generation,name,platform_family.*,platform_logo.*,slug,summary,updated_at,url,versions.*,websites.*;limit $limit;");
+            "fields abbreviation,alternative_name,category,checksum,created_at,generation,name,platform_family.*,platform_logo.*,slug,summary,updated_at,url,versions.*,versions.platform_logo.*,versions.companies.*,versions.companies.company.*,versions.companies.company.logo.*,versions.companies.company.parent.*,versions.companies.company.websites.*,websites.*;limit $limit;");
     if (response.statusCode == 200) {
       log(response.body);
       log(response.statusCode.toString());

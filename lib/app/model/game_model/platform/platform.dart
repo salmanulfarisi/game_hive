@@ -1,5 +1,6 @@
 import 'package:game_hive/app/model/game_model/platform/platform_family.dart';
 import 'package:game_hive/app/model/game_model/platform/platform_logo.dart';
+import 'package:game_hive/app/model/game_model/platform/platform_version.dart';
 import 'package:game_hive/app/model/game_model/platform/platform_websites.dart';
 
 class PlatformModel {
@@ -16,7 +17,7 @@ class PlatformModel {
   final String summary;
   final int updatedAt;
   final String url;
-  // final List<PlatformVersionModel> versions;
+  final List<PlatformVersionModel> versions;
   final List<PlatformWebsitesModel> websites;
 
   PlatformModel(
@@ -33,7 +34,7 @@ class PlatformModel {
       this.summary,
       this.updatedAt,
       this.url,
-      // this.versions,
+      this.versions,
       this.websites);
 
   factory PlatformModel.fromJson(Map<String, dynamic> json) {
@@ -55,10 +56,10 @@ class PlatformModel {
       json['summary'] ?? 'No summary',
       json['updated_at'] ?? 0,
       json['url'] ?? 'No url',
-      // json['versions'] == null
-      //     ? []
-      //     : List<PlatformVersionModel>.from(
-      //         json['versions'].map((x) => PlatformVersionModel.fromJson(x))),
+      json['versions'] == null
+          ? []
+          : List<PlatformVersionModel>.from(
+              json['versions'].map((x) => PlatformVersionModel.fromJson(x))),
       json['websites'] == null
           ? []
           : List<PlatformWebsitesModel>.from(

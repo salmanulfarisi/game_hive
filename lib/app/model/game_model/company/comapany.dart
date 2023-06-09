@@ -10,17 +10,17 @@ class CompanyModel {
   final int country;
   final int createdAt;
   final String description;
-  final GameModel? developedGames;
+  final List<GameModel>? developedGames;
   final CompanyLogoModel? logo;
   final String name;
   final CompanyModel? parent;
-  final GameModel? publishedGames;
+  final List<GameModel>? publishedGames;
   final String slug;
   final int startDate;
   final int startDateCategory;
   final int updatedAt;
   final String url;
-  final List<CompanyWebsitesModel> websites;
+  final List<CompanyWebsitesModel>? websites;
 
   CompanyModel(
     this.id,
@@ -48,26 +48,30 @@ class CompanyModel {
       json['id'] ?? 0,
       json['change_date'] ?? 0,
       json['change_date_category'] ?? 0,
-      CompanyModel.fromJson(json['company']),
+      json['company'] == null ? null : CompanyModel.fromJson(json['company']),
       json['country'] ?? 0,
       json['created_at'] ?? 0,
       json['description'] ?? 'No description',
       json['developed_games'] == null
-          ? null
-          : GameModel.fromJson(json['developed_games']),
+          ? []
+          : List<GameModel>.from(
+              json['developed_games'].map((x) => GameModel.fromJson(x))),
       json['logo'] == null ? null : CompanyLogoModel.fromJson(json['logo']),
       json['name'] ?? 'No name',
       json['parent'] == null ? null : CompanyModel.fromJson(json['parent']),
       json['published_games'] == null
-          ? null
-          : GameModel.fromJson(json['published_games']),
+          ? []
+          : List<GameModel>.from(
+              json['published_games'].map((x) => GameModel.fromJson(x))),
       json['slug'] ?? 'No slug',
       json['start_date'] ?? 0,
       json['start_date_category'] ?? 0,
       json['updated_at'] ?? 0,
       json['url'] ?? 'No url',
-      List<CompanyWebsitesModel>.from(
-          json['websites'].map((x) => CompanyWebsitesModel.fromJson(x))),
+      json['websites'] == null
+          ? []
+          : List<CompanyWebsitesModel>.from(
+              json['websites'].map((x) => CompanyWebsitesModel.fromJson(x))),
     );
   }
 }

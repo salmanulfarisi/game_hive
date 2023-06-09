@@ -4,6 +4,7 @@ class Colors {
   const Colors();
 
   static const Color mainColor = Color(0xFF39FF14);
+  static const Color mainBackground = Color(0xFF20232A);
   static const Color backgroundColor = Color(0xFF262930);
   static const Color secondaryColor = Color(0xFFF7CA18);
   static const Color grey = Color.fromARGB(255, 107, 106, 106);
@@ -30,5 +31,28 @@ class TextStyles {
     color: Colors.white.withOpacity(0.5),
     fontSize: 14.0,
     fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle appBarTitle = TextStyle(
+    color: Colors.white.withOpacity(0.7),
+    fontWeight: FontWeight.w400,
+  );
+
+  static TextStyle normalWhiteText = const TextStyle(
+    color: Colors.white,
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle platformTitleText = const TextStyle(
+    color: Colors.white,
+    fontSize: 16.0,
+    fontWeight: FontWeight.w600,
+  );
+
+  static TextStyle titleText = const TextStyle(
+    color: Colors.white,
+    fontSize: 18.0,
+    fontWeight: FontWeight.w600,
   );
 }

@@ -3,7 +3,7 @@ import 'package:game_hive/app/model/game_model/platform/platform_version_company
 
 class PlatformVersionModel {
   final int id;
-  final PlatformVersionCompanyModel? companies;
+  final List<PlatformVersionCompanyModel>? companies;
   final String? connectivity;
   final String? cpu;
   final String? graphics;
@@ -45,8 +45,9 @@ class PlatformVersionModel {
     return PlatformVersionModel(
       json['id'] ?? 0,
       json['companies'] == null
-          ? null
-          : PlatformVersionCompanyModel.fromJson(json['companies']),
+          ? []
+          : List<PlatformVersionCompanyModel>.from(json['companies']
+              .map((e) => PlatformVersionCompanyModel.fromJson(e))),
       json['connectivity'] ?? 'No connectivity',
       json['cpu'] ?? 'No cpu',
       json['graphics'] ?? 'No graphics',
